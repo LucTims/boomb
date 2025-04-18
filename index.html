@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BoomBook's - Message Urgent</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .urgent-banner {
+      width: 100%;
+      background-color: #ff4d4d;
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      padding: 10px 0;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+    }
+
+    .urgent-text {
+      display: inline-block;
+      animation: scroll-left 10s linear infinite;
+      font-size: 20px;
+      padding-left: 100%;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* ✅ Media queries pour responsivité */
+    @media (max-width: 768px) {
+      .urgent-text {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .urgent-text {
+        font-size: 14px;
+      }
+    }
+    #loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid orange;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  animation: spin 1s linear infinite;
+}
+
+.loader-text {
+  margin-top: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 600px) {
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border-width: 6px;
+  }
+
+  .loader-text {
+    font-size: 1rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="floating-icon" id="visitorIcon">
+    👥 <span id="visitorCount"></span> connectés
+    <span class="close-btn" onclick="closeVisitorIcon()">❌</span>
+  </div>
+  <style>.floating-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #2196f3, #0d47a1);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 25px;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+  }
+  
+  .floating-icon .close-btn {
+    margin-left: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+  }
+  
+  @media (max-width: 600px) {
+    .floating-icon {
+      font-size: 14px;
+      padding: 10px 14px;
+    }
+  }
+  </style>
+  <script>// Fonction pour générer un nombre aléatoire entre 100 et 999
+    function updateVisitorCount() {
+      const count = Math.floor(Math.random() * 250) + 10;
+      document.getElementById("visitorCount").textContent = count;
+    }
+    
+    // Démarrer l'affichage du nombre à l'ouverture de la page
+    document.addEventListener("DOMContentLoaded", function () {
+      updateVisitorCount(); // initial
+      setInterval(updateVisitorCount, 10000); // mise à jour toutes les 10 secondes
+    });
+    
+    // Fermer l'icône flottante
+    function closeVisitorIcon() {
+      const icon = document.getElementById("visitorIcon");
+      icon.style.opacity = 0;
+      setTimeout(() => icon.style.display = 'none', 300);
+    }
+    
+    </script>
+  <div id="loader">
+    <div class="spinner"></div>
+    <p class="loader-text">Chargement en cours...</p>
+  </div>
+  
+  <div class="urgent-banner">
+    <div class="urgent-text">TON TEMPS EST TON BIEN LE PLUS PRÉCIEUX. NE LE GÂCHE SURTOUT PAS !</div>
+  </div>
+  <script>
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("loader");
+      loader.style.opacity = "0";
+      loader.style.visibility = "hidden";
+      loader.style.transition = "all 0.5s ease";
+    });
+  </script>
+  
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Entête de la page -->
+<header class="header">
+  <div class="logo">
+    <span class="black">Boom</span><span class="orange">Book's</span>
+  </div>
+  <a href="https://pay.lygosapp.com//link/4dc8add5-94b1-4169-af6c-a440d4b22e68" class="cta-button">Télécharge le pack</a>
+</header>
+
+<style>
+  .header {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .logo .black {
+    color: #000000;
+  }
+
+  .logo .orange {
+    color: #ff6600;
+  }
+
+  .cta-button {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: #e65500;
+  }
+
+  /* ✅ Responsive mobile */
+  @media (max-width: 600px) {
+    .logo {
+      font-size: 20px;
+    }
+
+    .cta-button {
+      padding: 8px 15px;
+      font-size: 14px;
+    }
+  }
+</style>
+<!-- Section de bienvenue -->
+<section class="welcome-section">
+  <h1 class="welcome-title">Bienvenue chez <span>BoomBook's</span></h1>
+  <p class="slogan">L'antidote de l'ignorance</p>
+  <div class="categories">
+    <span class="category">Sciences économiques</span>
+    <span class="category">Finance et monnaie</span>
+    <span class="category">Géopolitique & relations internationales</span>
+    <span class="category">Éducation économique / Réflexion critique</span>
+    <span class="category">Développement personnel intellectuel </span>
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+  .welcome-section {
+    background-color: #e0f7fa; /* bleu ciel */
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .welcome-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .welcome-title span {
+    color: #ff6600;
+  }
+
+  .slogan {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 30px;
+  }
+
+  .categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .category {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #333;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+
+  .category:hover {
+    background-color: #ff6600;
+    color: white;
+  }
+
+  /* ✅ Responsive mobile */
+  @media (max-width: 600px) {
+    .welcome-title {
+      font-size: 24px;
+    }
+
+    .slogan {
+      font-size: 16px;
+    }
+
+    .category {
+      font-size: 13px;
+      padding: 8px 14px;
+    }
+  }
+</style>
+<!-- Section du livre principal -->
+<section class="book-section">
+  <div class="book-container">
+    <div class="book-image">
+      <img src="image/introduction a leconomie.jpg" alt="Couverture du livre">
+    </div>
+    <div class="book-details">
+      <h2 class="book-title"> Introduction à l’Économie Politique Internationale – Stéphane Pagin</h2>
+      <p class="book-description">
+  <h1>le livre qui ouvre les yeux sur le vrai fonctionnement du monde économique… et notre place dans ce système</h1>
+Dans le besoin d’aider les jeunes Africains conscients, étudiants, entrepreneurs et citoyens engagés à comprendre les mécanismes cachés derrière les déséquilibres économiques,
+<h1>BoomBook’s</h1> vous présente un livre incontournable : Introduction à l’Économie Politique Internationale
+Un ouvrage clair, accessible, et profondément éclairant, qui vous permettra de déchiffrer le fonctionnement réel du monde, au-delà des discours officiels.
+
+Ceci sans avoir besoin d’être un expert en économie. Le livre est pensé pour tous ceux qui veulent comprendre pourquoi nos pays restent dépendants, comment se prennent les grandes décisions économiques mondiales, et où se trouve réellement le pouvoir.
+
+Alors… ne perdez plus le temps si vous voulez élargir votre vision, construire une conscience économique solide et participer activement au changement.
+Car les enjeux sont là, et comprendre les règles du jeu est la première étape pour ne plus en être une simple victime.
+      </p>
+      <p class="price">💵 655 FCFA / 1£</p>
+      <a href="https://pay.lygosapp.com//link/74312510-18b4-44b7-8e50-397326a001dc" class="buy-btn">📘 Télécharge maintenant</a>
+      <hr>
+      <p class="download-info">📥 Déjà <span id="download-count"></span> personnes ont téléchargé ce livre.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .book-section {
+    border: 4px double #b2ebf2;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    margin: 40px 0;
+  }
+
+  .book-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .book-image img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .book-details {
+    max-width: 500px;
+    text-align: left;
+  }
+
+  .book-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .book-description {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .buy-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #ff6600;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  .buy-btn:hover {
+    background-color: #e65100;
+  }
+
+  hr {
+    margin: 25px 0 10px;
+    border: none;
+    border-top: 1px solid #ddd;
+  }
+
+  .download-info {
+    font-size: 13px;
+    color: #777;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .book-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .book-details {
+      text-align: center;
+    }
+  }
+</style>
+
+<!-- JS pour le nombre aléatoire -->
+<script>
+  const count = Math.floor(Math.random() * 300 + 100); // entre 100 et 400
+  document.getElementById("download-count").innerText = count;
+</script>
+<!-- SECTION : PRODUITS SIMILAIRES -->
+<section class="similar-products">
+  <h2 class="section-title">📚 LES PRODUITS SIMILAIRES</h2>
+  <div class="product-list">
+
+    <!-- Livre 1 -->
+    <div class="product-card">
+      <img src="image/les grands penseurs.jpg" alt="Livre 1">
+      <h2> Les Grands Penseurs de l’Économie – Arnaud Pautet</h2>
+      <p class="price">💵 655 FCFA / 1£</p>
+      <a href="https://pay.lygosapp.com//link/a7286ffa-daec-4346-9513-1620ff55e8de" class="buy-btn">Télécharge le livre</a>
+      <p class="buyers">🔁 <span class="count"></span> personnes ont acheté</p>
+    </div>
+
+    <!-- Livre 2 -->
+    <div class="product-card">
+      <img src="image/economie monetaire.jpg" alt="Livre 2">
+      <h2> Économie Monétaire et Financière – Michel Cazals
+      </h2>
+      <p class="price">💵 655 FCFA / 1£</p>
+      <a href="https://pay.lygosapp.com//link/a00f2e5a-6512-42cf-8bdf-0451fee6a427" class="buy-btn">Télécharge le livre</a>
+      <p class="buyers">🔁 <span class="count"></span> personnes ont acheté</p>
+    </div>
+
+    <!-- Livre 3 -->
+    <div class="product-card">
+      <img src="image/economie politique.jpg" alt="Livre 3">
+      <h2>Économie Politique – Jacques Généreux</h2>
+      <p class="price">💵 655 FCFA / 1£</p>
+      <a href="https://pay.lygosapp.com//link/b0f5a9e2-ffdb-4418-9d71-b85bc89553b3" class="buy-btn">Télécharge le livre</a>
+      <p class="buyers">🔁 <span class="count"></span> personnes ont acheté</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .similar-products {
+    border: 4px double #81d4fa;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    margin: 50px 0;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 28px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 40px;
+    color: #333;
+  }
+
+  .product-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .product-card {
+    background: white;
+    padding: 20px;
+    width: 230px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 15px;
+  }
+
+  .product-card h3 {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #333;
+    font-weight: 600;
+  }
+
+  .price {
+    font-size: 14px;
+    color: #ff6600;
+    margin-bottom: 10px;
+  }
+
+  .buy-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: hsl(0, 94%, 50%);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .buyers {
+    font-size: 12px;
+    color: #777;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .product-list {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .product-card {
+      width: 80%;
+    }
+  }
+</style>
+
+<!-- JS pour générer un nombre aléatoire d'acheteurs -->
+<script>
+  const counts = document.querySelectorAll('.count');
+  counts.forEach(count => {
+    const randomNumber = Math.floor(Math.random() * 500 + 100);
+    count.textContent = randomNumber;
+  });
+</script>
+<!-- SECTION PACK LIVRES -->
+<section class="book-pack">
+  <h2 class="pack-title">📦 PACK LIVRES</h2>
+  <p class="pack-description">
+   <H3>Recois entre tes mains 4 livres puissants
+    Ce pack spécial "ECONOMIE" est fait pour toi :</H3> Une sélection puissante de livres numériques regroupés par thème pour élargir ta vision, booster tes compétences et nourrir ton esprit.
+    📚 Apprends plus, comprends mieux… à petit prix
+    <h3>Tout ce qu’il te faut pour réussir sur Internet, réuni dans un seul pack.</h3>
+  </p>
+
+  <div class="pack-container">
+    <div class="pack-image">
+      <img src="image/pack.jpg" alt="Image du pack de livres">
+    </div>
+    <div class="pack-content">
+      <h3 class="pack-name">✨ Pack BoomBook's – BUSINESS EN LIGNE</h3>
+      <p class="price">💵 2 055 FCFA / 3£</p>
+      <a href="https://pay.lygosapp.com//link/4dc8add5-94b1-4169-af6c-a440d4b22e68" class="pack-buy-btn">Télécharge le pack</a>
+      <p class="pack-stats">🔁 <span id="packCount"></span> personnes ont déjà acheté ce pack</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .book-pack {
+    border: 4px double #81d4fa;
+    background-color: #f0f8ff;
+    padding: 60px 20px;
+    margin: 50px 0;
+    text-align: center;
+  }
+
+  .pack-title {
+    font-size: 28px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+  }
+
+  .pack-description {
+    font-size: 16px;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .pack-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .pack-image img {
+    width: 250px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .pack-content {
+    max-width: 400px;
+    text-align: left;
+  }
+
+  .pack-name {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+  }
+
+  .pack-buy-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #ff6600;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.3s ease;
+  }
+
+  .pack-buy-btn:hover {
+    background-color: #e65c00;
+  }
+
+  .pack-stats {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #777;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .pack-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .pack-content {
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  // Générer un nombre aléatoire de personnes ayant acheté le pack
+  document.getElementById('packCount').textContent = Math.floor(Math.random() * 400 + 100);
+</script>
+
+<!-- SECTION BONUS EXCLUSIF AVEC IMAGE -->
+<section class="bonus-section">
+  <h2 class="bonus-title">🎁 BONUS EXCLUSIF</h2>
+  <p class="bonus-text">Recevez ce bonus uniquement si vous prenez le <strong>Pack Livres</strong>.</p>
+
+  <div class="bonus-content">
+    <img src="image/photo_2025-02-19_00-01-41.jpg" alt="Bonus offert" class="bonus-image">
+    <div class="bonus-description">
+      <h3>Ce que vous recevez :</h3>
+      <p>🎁 Cadeau Spécial pour Toi !
+        Parce que BoomBook's T'es reconnaissant
+        
+        BoomBook's t’offre gratuitement le livre "Tous Les Marketeurs Sont Des Menteurs", une pépite pour toutes celles et ceux qui veulent se connaitre les secrets, les astuces, et memes les fraudes des marketeurs,...
+    </div>
+  </div>
+</section>
+
+<style>
+  .bonus-section {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #fce4ec, #e1f5fe);
+    text-align: center;
+    border-top: 3px dashed #ff4081;
+    border-bottom: 3px dashed #0288d1;
+    border-radius: 10px;
+    margin: 50px auto;
+  }
+
+  .bonus-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #d81b60;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .bonus-text {
+    font-size: 18px;
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+  }
+
+  .bonus-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .bonus-image {
+    width: 300px;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .bonus-description {
+    max-width: 400px;
+    text-align: left;
+  }
+
+  .bonus-description h3 {
+    font-size: 22px;
+    color: #0288d1;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .bonus-description p {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .bonus-title {
+      font-size: 24px;
+    }
+
+    .bonus-text {
+      font-size: 16px;
+      padding: 0 10px;
+    }
+
+    .bonus-content {
+      flex-direction: column;
+    }
+
+    .bonus-description {
+      text-align: center;
+    }
+  }
+</style>
+<!-- SECTION AVIS CLIENT -->
+<section class="avis-section">
+  <h2 class="avis-title">🗣️ Donnez votre avis</h2>
+  <p class="avis-subtitle">Votre retour compte énormément pour nous !</p>
+
+  <form action="https://formspree.io/f/meoanzww" method="POST" class="avis-form" onsubmit="saveAvisLocally(); alert('✅ Merci pour votre avis !');">
+    
+    <!-- NOTE ÉTOILES -->
+    <label for="note">Votre note :</label>
+    <div class="stars" id="starRating">
+      <span onclick="rate(1)">★</span>
+      <span onclick="rate(2)">★</span>
+      <span onclick="rate(3)">★</span>
+      <span onclick="rate(4)">★</span>
+      <span onclick="rate(5)">★</span>
+    </div>
+    <input type="hidden" id="note" name="Note">
+
+    <!-- AVIS -->
+    <label for="avis">Votre avis :</label>
+    <textarea id="avis" name="Avis" rows="5" placeholder="Écrivez votre avis ici..." required></textarea>
+
+    <!-- NOM -->
+    <label for="nom">Votre nom :</label>
+    <input type="text" id="nom" name="Nom" placeholder="Votre nom" required>
+
+    <!-- EMAIL -->
+    <label for="email">Votre email :</label>
+    <input type="email" id="email" name="Email" placeholder="exemple@mail.com" required>
+
+    <!-- BOUTON -->
+    <button type="submit">Envoyer</button>
+  </form>
+</section>
+
+<!-- STYLE -->
+<style>
+  .avis-section {
+    background: #f1f8ff;
+    padding: 60px 20px;
+    border-top: 4px double #2196f3;
+    border-bottom: 4px double #2196f3;
+    text-align: center;
+  }
+
+  .avis-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #0d47a1;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .avis-subtitle {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #333;
+  }
+
+  .avis-form {
+    max-width: 600px;
+    margin: auto;
+    text-align: left;
+  }
+
+  .avis-form label {
+    font-weight: bold;
+    display: block;
+    margin-top: 20px;
+    font-family: 'Open Sans', sans-serif;
+    color: #444;
+  }
+
+  .avis-form input,
+  .avis-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .avis-form button {
+    margin-top: 25px;
+    background: #0288d1;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .avis-form button:hover {
+    background: #0277bd;
+  }
+
+  .stars span {
+    font-size: 30px;
+    cursor: pointer;
+    color: lightgray;
+    margin-right: 5px;
+  }
+
+  .stars span.active {
+    color: gold;
+  }
+
+  @media (max-width: 600px) {
+    .avis-title {
+      font-size: 24px;
+    }
+
+    .avis-subtitle {
+      font-size: 16px;
+    }
+  }
+</style>
+
+<!-- JS : Gestion des étoiles + stockage local -->
+<script>
+  function rate(note) {
+    document.getElementById('note').value = note;
+    const stars = document.querySelectorAll('#starRating span');
+    stars.forEach((star, index) => {
+      star.classList.toggle('active', index < note);
+    });
+  }
+
+  function saveAvisLocally() {
+    const nom = document.getElementById('nom').value;
+    const email = document.getElementById('email').value;
+    const avis = document.getElementById('avis').value;
+    localStorage.setItem('boom_nom', nom);
+    localStorage.setItem('boom_email', email);
+    localStorage.setItem('boom_avis', avis);
+  }
+
+  window.onload = function () {
+    if (localStorage.getItem('boom_nom')) {
+      document.getElementById('nom').value = localStorage.getItem('boom_nom');
+    }
+    if (localStorage.getItem('boom_email')) {
+      document.getElementById('email').value = localStorage.getItem('boom_email');
+    }
+    if (localStorage.getItem('boom_avis')) {
+      document.getElementById('avis').value = localStorage.getItem('boom_avis');
+    }
+  }
+</script>
+<!-- SECTION FOOTER -->
+<section class="footer">
+  <svg class="footer-wave" viewBox="0 0 1440 320">
+    <path fill="#001f3f" fill-opacity="1" d="M0,64L48,90.7C96,117,192,171,288,165.3C384,160,480,96,576,90.7C672,85,768,139,864,160C960,181,1056,171,1152,149.3C1248,128,1344,96,1392,80L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+  </svg>
+
+  <div class="footer-content">
+    <div class="logo-section">
+      <h1><span class="white">Boom</span><span class="orange">Book's</span></h1>
+    </div>
+
+    <div class="contact-info">
+      <p><strong>Email :</strong> www.boombooks1@gmail.com</p>
+      <p><strong>Téléphone :</strong> +237 674246355</p>
+    </div>
+
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/1C4aNDV6j4/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://wa.me/237674246355" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://t.me/boombooks" target="_blank"><i class="fab fa-telegram"></i></a>
+      <a href="https://tiktok.com/@boombooks" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+
+    <div class="policies">
+      <a href="condition.html">Conditions générales de vente</a>
+      <a href="mention.html">Mentions légales</a>
+      <a href="confidentialité.html">Politique de confidentialité</a>
+      <a href="remboursement.html">Politique de remboursement</a>
+    </div>
+
+    <p class="copyright">©Copyright 2025 BoomBook's - Tous droits réservés</p>
+  </div>
+</section>
+<style>
+  .footer {
+    background: linear-gradient(to bottom, #001f3f, #003366);
+    color: #fff;
+    padding: 4rem 1rem 2rem;
+    position: relative;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .footer-wave {
+    position: absolute;
+    top: -90px;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+  
+  .logo-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .logo-section .black { color: #000; }
+  .logo-section .orange { color: orange; }
+  
+  .contact-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+  
+  .social-icons {
+    margin: 1rem 0;
+  }
+  .social-icons a {
+    margin: 0 10px;
+    color: white;
+    font-size: 1.8rem;
+    transition: transform 0.3s, color 0.3s;
+  }
+  .social-icons a:hover {
+    transform: scale(1.2);
+    color: orange;
+  }
+  
+  .policies {
+    margin: 1.5rem 0;
+  }
+  .policies a {
+    display: block;
+    margin: 5px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  .policies a:hover {
+    color: orange;
+  }
+  
+  .footer-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  footer svg {
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    .logo-section h1 {
+      font-size: 2rem;
+    }
+    .contact-info p,
+    .policies a {
+      font-size: 0.9rem;
+    }
+    .social-icons a {
+      font-size: 1.4rem;
+    }
+  }
+  </style>
+  
